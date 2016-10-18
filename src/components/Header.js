@@ -1,5 +1,12 @@
 const h = require('react-hyperscript')
+const React = require('react')
 
-module.exports = _ => h('header', [
-  h('h1.f3.dark-gray', 'Code News')
-])
+const Header = React.createClass({
+  render: function () {
+    return h('header', [
+      h('h1.f3.dark-gray', this.props.title)
+    ])
+  }
+})
+
+module.exports = Header
