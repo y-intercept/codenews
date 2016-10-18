@@ -22,15 +22,21 @@ module.exports = React.createClass({
   scoreChanged: function (item) {
     this.setState({items})
   },
-
+  addNewsItem: function (newItem) {
+    this.setState({
+      items: this.state
+        .items.concat([newItem])
+    })
+  },
   render () {
     return h('div.bg-mid-gray.pa4.vh-100', [
     h(Header, { title: "Code News 4 You" }),
     h('main', [
-      h(List, { items:
-        this.state.items, onScoreChange: this.scoreChanged
+      h(List, {
+        items: this.state.items,
+        onScoreChange: this.scoreChanged
       }),
-      h(Form)
+      h(Form, { addNewsItem: this.addNewsItem })
     ])
   ])
 }
